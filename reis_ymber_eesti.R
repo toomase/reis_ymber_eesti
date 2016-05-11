@@ -166,7 +166,7 @@ rajad <- map_df(linnad_jarjekorras$jrk, teekonnad)
 kaart <- leaflet() %>% 
     addProviderTiles("MapQuestOpen.OSM") %>%
     addPolylines(rajad$lon, rajad$lat, fill = FALSE) %>%
-    addCircleMarkers(linnad$lon, linnad$lat, popup = linnad$linn,
+    addCircleMarkers(linnad$lon, linnad$lat, popup = linnad$linn_propercase,
                      radius = 6, stroke = FALSE,  fillOpacity = 0.8, 
                      color = "red")
 
@@ -208,5 +208,5 @@ rajad_lisaandmed %>%
     summarise(sum(hours, na.rm = TRUE))
 
 # salvesta tabelid
-save(rajad_lisaandmed, linnad_jarjekorras, 
+save(rajad, linnad, linnad_jarjekorras, 
      file ="output/reis_ymber_eesti.rData")
