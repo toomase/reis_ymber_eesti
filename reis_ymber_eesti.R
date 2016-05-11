@@ -202,5 +202,11 @@ teekonna_lisaandmed <- function(jarjekord){
 # kõiki linnu läbiv teekonna pikkus ja kuluv aeg
 rajad_lisaandmed <- map_df(linnad_jarjekorras$jrk, teekonna_lisaandmed)
 
+# aeg: 34.56 h
+# teekonna pikkus: 1762 km
 rajad_lisaandmed %>%
-    summarise(sum(km, na.rm = TRUE))
+    summarise(sum(hours, na.rm = TRUE))
+
+# salvesta tabelid
+save(rajad_lisaandmed, linnad_jarjekorras, 
+     file ="output/reis_ymber_eesti.rData")
