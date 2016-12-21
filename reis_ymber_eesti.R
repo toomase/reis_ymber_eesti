@@ -9,6 +9,7 @@ library(purrr)
 library(htmlwidgets)
 library(webshot)
 
+
 # Funktsioon muudab täpitähed õigeteks
 # Kodeeringu viga, mis tuleb sisse peamiselt veebi lehtede sisu kraapimisega
 tapitahed <- function(x){
@@ -164,7 +165,7 @@ rajad <- map_df(linnad_jarjekorras$jrk, teekonnad)
 
 # interaktiivne kaart kõiki linnu läbivast teekonnast
 kaart <- leaflet() %>% 
-    addProviderTiles("MapQuestOpen.OSM") %>%
+    addProviderTiles("HERE.normalDay") %>%
     addPolylines(rajad$lon, rajad$lat, fill = FALSE) %>%
     addCircleMarkers(linnad$lon, linnad$lat, popup = linnad$linn_propercase,
                      radius = 6, stroke = FALSE,  fillOpacity = 0.8, 
